@@ -1,7 +1,7 @@
 </body>
-<script src="node_modules/@material-tailwind/html@latest/scripts/ripple.js"></script>
+{{-- <script src="node_modules/@material-tailwind/html@latest/scripts/ripple.js"></script>
 <script src="node_modules/@material-tailwind/html/scripts/collapse.js"></script>
-<script src="node_modules/@material-tailwind/html/scripts/tabs.js"></script>
+<script src="node_modules/@material-tailwind/html/scripts/tabs.js"></script> --}}
 <footer class="w-full bg-white p-8">
   <div class="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between">
   <i class="material-icons w-10 ">cake</i>
@@ -12,8 +12,8 @@
           class="block font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased transition-colors hover:text-pink-500 focus:text-pink-500">
           About Us </a>
           <div class="flex flex-col">
-            <div class="flex flex-row p-2 text-cyan-500"><i class="material-icons w-10">info</i>An IT Students that are developing<br>
-              a captsone project for BSIT</div>
+            <div class="flex flex-row p-2 text-cyan-500"><i class="material-icons w-10">info</i>A IT Students that are developing<br>
+              a capstone project for BSIT</div>
           </div>
       </li>
       <li>
@@ -50,3 +50,9 @@
   </p>
 </footer>
 </html>
+<script type="module" src="https://unpkg.com/@material-tailwind/html@latest/scripts/popover.js"></script>
+<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/tabs.js"></script>
+<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/dialog.js"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
+<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/collapse.js"></script>
