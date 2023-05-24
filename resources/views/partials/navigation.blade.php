@@ -1,53 +1,119 @@
 <nav class="sticky inset-0 z-10 block h-max w-full max-w-full rounded-none border border-white/80 bg-white bg-opacity-80 py-2 px-4 text-white shadow-md backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4">
 <div class="flex items-center text-gray-900">
   <a
-    href="#"
+    href="{{url('')}}"
     class="mr-4 block cursor-pointer py-1.5 font-sans text-base font-medium leading-relaxed text-inherit antialiased"
   >
     GoBake
   </a>
-  <ul class="ml-auto mr-8 flex items-center gap-6 lg:hidden">
-    <li class="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased">
+
+<ul class="ml-auto mr-8 flex items-center gap-6 lg:hidden">
+
+  <li class="block p-3 rounded-2xl text-pink-600 font-sans text-sm font-normal leading-normal text-inherit antialiased" data-ripple-dark="true">
+    <a class="flex items-center" href="{{url('')}}">
+      Start Selling
+    </a>
+  </li>
+
+    <li class="block p-3 rounded-2xl font-sans text-sm font-normal leading-normal text-inherit antialiased" data-ripple-dark="true">
       <a class="flex items-center" href="{{url('')}}">
         Home
       </a>
     </li>
-    <li class="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased">
-      <a class="flex items-center" href="{{url('shop')}}">
+    <li class="block p-3 rounded-2xl font-sans text-sm font-normal leading-normal text-inherit antialiased" data-ripple-dark="true">
+      <a class="flex items-center cursor-pointer"
+      data-popover-target="shop-menu">
         Shop
+        <i class="material-icons">arrow_drop_down</i>
       </a>
     </li>
-    <li class="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased">
-      <a class="flex items-center" href="#">
+        
+  <ul
+      role="menu"
+      data-popover="shop-menu"
+      data-popover-placement="bottom"
+      class="absolute z-10 flex min-w-[180px] flex-col gap-2 overflow-auto rounded-md border border-blue-gray-50 bg-white p-3 font-sans text-sm font-normal text-blue-gray-500 shadow-lg shadow-blue-gray-500/10 focus:outline-none"
+    >
+    <h1 class="text-center block font-sans text-md uppercase text-gray-700 font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+      Categories
+    </h1>
+
+    <a data-ripple-dark="true"
+      tabIndex="-1"
+      role="menuitem"
+      href="{{url('shop')}}"
+      class="flex w-full cursor-pointer select-none items-center justify-center gap-2 rounded-md px-3 pt-[9px] pb-2 text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+      <p class="block font-sans text-sm font-normal leading-normal text-inherit antialiased">
+        Pastry Products
+      </p>
+    </a>
+
+    <a data-ripple-dark="true"
+      tabIndex="-1"
+      role="menuitem"
+      href="{{url('shop')}}"
+      class="flex w-full cursor-pointer select-none items-center justify-center gap-2 rounded-md px-3 pt-[9px] pb-2 text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+      <p class="block font-sans text-sm font-normal leading-normal text-inherit antialiased">
+        Ingredients
+      </p>
+    </a>
+
+    <a data-ripple-dark="true"
+      tabIndex="-1"
+      role="menuitem"
+      href="{{url('shop')}}"
+      class="flex w-full cursor-pointer select-none items-center justify-center gap-2 rounded-md px-3 pt-[9px] pb-2 text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+      <p class="block font-sans text-sm font-normal leading-normal text-inherit antialiased">
+        Baking Equipments
+      </p>
+    </a>
+
+  </ul>
+      
+    </li>
+    <li class="block p-3 rounded-2xl font-sans text-sm font-normal leading-normal text-inherit antialiased" data-ripple-dark="true">
+      <a class="flex items-center" href="{{url('orders')}}">
         Orders
       </a>
     </li>
-    <li class="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased">
+    <li class="block p-3 rounded-2xl font-sans text-sm font-normal leading-normal text-inherit antialiased" data-ripple-dark="true">
       <a class="flex items-center" href="{{url('login')}}">
         Account
       </a>
     </li>
+
+    {{-- search bar --}}
+
+    <form class="w-96">   
+      <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+      <div class="relative">
+          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          </div>
+          <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required>
+          <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600">Search</button>
+      </div>
+    </form>
+
     <li>
-        <button type="button" class="relative inline-flex items-center p-1 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        <button type="button" class="relative inline-flex items-center p-1 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:outline-none dark:bg-blue-600 dark:hover:bg-blue-700E">
           <i class="material-icons w-10">shopping_cart</i>
           <span class="sr-only">Notifications</span>
-          <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">8</div>
+          <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2">8</div>
         </button>
     </li>
 
     {{-- profile --}}
     <img
-  alt=""
-  src="https://images.unsplash.com/photo-1675786571865-90827bbf8b8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHZlY3RvciUyMGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
-  class="relative inline-block h-10 w-10 cursor-pointer rounded-full object-cover object-center"
-  data-popover-target="profile-menu"
-/>
-<ul
-  role="menu"
-  data-popover="profile-menu"
-  data-popover-placement="bottom"
-  class="absolute z-10 flex min-w-[180px] flex-col gap-2 overflow-auto rounded-md border border-blue-gray-50 bg-white p-3 font-sans text-sm font-normal text-blue-gray-500 shadow-lg shadow-blue-gray-500/10 focus:outline-none"
->
+      src="https://images.unsplash.com/photo-1675786571865-90827bbf8b8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHZlY3RvciUyMGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+      class="relative inline-block h-10 w-10 cursor-pointer rounded-full object-cover object-center"
+      data-popover-target="profile-menu"/>
+  <ul
+    role="menu"
+    data-popover="profile-menu"
+    data-popover-placement="bottom"
+    class="absolute z-10 flex min-w-[180px] flex-col gap-2 overflow-auto rounded-md border border-blue-gray-50 bg-white p-3 font-sans text-sm font-normal text-blue-gray-500 shadow-lg shadow-blue-gray-500/10 focus:outline-none"
+  >
   <button
     tabIndex="-1"
     role="menuitem"

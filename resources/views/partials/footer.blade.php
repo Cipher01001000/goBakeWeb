@@ -4,7 +4,7 @@
 <script src="node_modules/@material-tailwind/html/scripts/tabs.js"></script> --}}
 <footer class="w-full bg-white p-8">
   <div class="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between">
-  <i class="material-icons w-10 ">cake</i>
+  <i class="material-icons w-10">cake</i>
     <ul class="flex flex-wrap items-center gap-y-2 gap-x-8">
       <li>
         <a
