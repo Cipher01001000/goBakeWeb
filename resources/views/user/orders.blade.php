@@ -1,10 +1,13 @@
-@section('title', '| Orders')
-@include('partials.header')
+<x-app-layout title="| Orders">
 
-@include('partials.sidebar-start')
+  <x-partials.sidebar>
 
-@include('partials.order-tab')
+    <x-partials.orderTab/>
 
-@include('partials.sidebar-end')
+  </x-partials.sidebar>
 
-@include('partials.footer')
+  @push('scripts')
+      <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/tabs.js"></script>
+  @endpush
+
+</x-app-layout>

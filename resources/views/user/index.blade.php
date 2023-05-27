@@ -1,8 +1,7 @@
-@section('title', '| Home')
-@include('partials.header')
+<x-app-layout title="| Home">
 
-<div class="bg-gradient-to-r from-cyan-300 to-cyan-100 flex flex-row mx-10 rounded-sm"
-id="head">
+  <div class="bg-gradient-to-r from-cyan-300 to-cyan-100 flex flex-row mx-10 rounded-sm"
+    id="head">
 
   <div class="p-10 ml-10 mt-10">
     <h1 class="block font-sans text-3xl text-blue-600 font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
@@ -275,6 +274,8 @@ id="cakes">
       
 </div>
 
+{{-- products --}}
+
 <div class="flex flex-row">
 
   <div class="p-1 relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
@@ -403,5 +404,4 @@ id="cakes">
   href="#head"><i class="material-icons">keyboard_arrow_up</i>
 </a>
 
-
-@include('partials.footer')
+</x-app-layout>

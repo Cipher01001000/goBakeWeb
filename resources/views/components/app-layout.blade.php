@@ -1,7 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Go Bake {{ $title }}</title>
+  @vite('resources/css/app.css')
+  <link href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css"/>
+</head>
+<body>
+  <x-partials.nav />
+
+  {{ $slot }}
+
 </body>
-{{-- <script src="node_modules/@material-tailwind/html@latest/scripts/ripple.js"></script>
-<script src="node_modules/@material-tailwind/html/scripts/collapse.js"></script>
-<script src="node_modules/@material-tailwind/html/scripts/tabs.js"></script> --}}
 <footer class="w-full bg-white p-8">
   <div class="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between">
   <i class="material-icons w-10">cake</i>
@@ -49,10 +63,14 @@
     © 2023 IT Horizon | GoBake
   </p>
 </footer>
-</html>
 <script type="module" src="https://unpkg.com/@material-tailwind/html@latest/scripts/popover.js"></script>
-<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/tabs.js"></script>
-<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/dialog.js"></script>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
 <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/collapse.js"></script>
+
+{{-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/tabs.js"></script>
+<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/dialog.js"></script> --}}
+
+  @stack('scripts')
+
+</html>
