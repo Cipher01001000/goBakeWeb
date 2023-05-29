@@ -1,6 +1,6 @@
-<x-app-layout title="| Home">
+<x-layouts.app-layout title="| Home">
 
-  <div class="bg-gradient-to-r from-cyan-300 to-cyan-100 flex flex-row mx-10 rounded-sm"
+  <div class="bg-gradient-to-r from-cyan-300 to-cyan-100 flex flex-row mx-10 rounded-sm justify-center items-center"
     id="head">
 
   <div class="p-10 ml-10 mt-10">
@@ -10,7 +10,7 @@
     <h1 class="block font-sans text-2xl text-blue-500 font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
       The Benefits of GoBake for Baking Enthusiasts.
     </h1>
-    <p class="mt-1 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
+    <p class="mt-1 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased sm:text-left">
       Our website makes shopping for baking supplies a breeze!<br>
       See how we can make your baking experience even sweeter.<br><br>
     </p>
@@ -149,7 +149,7 @@
 </h1>
 
 {{-- Products --}}
-<div class="flex flex-row gap-5"
+<div class="flex flex-row gap-5 justify-center items-center"
 id="cakes">
 
   <div class="p-1 relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
@@ -276,7 +276,7 @@ id="cakes">
 
 {{-- products --}}
 
-<div class="flex flex-row">
+<div class="flex flex-row justify-center items-center">
 
   <div class="p-1 relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
     <div class="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
@@ -404,4 +404,4 @@ id="cakes">
   href="#head"><i class="material-icons">keyboard_arrow_up</i>
 </a>
 
-</x-app-layout>
+</x-layouts.app-layout>

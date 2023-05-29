@@ -97,11 +97,12 @@
     
         {{-- shoping cart --}}
         <li>
-            <button type="button" class="relative inline-flex items-center p-1 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:outline-none dark:bg-blue-600 dark:hover:bg-blue-700E">
+            <a type="button" class="relative inline-flex items-center p-1 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:outline-none dark:bg-blue-600 dark:hover:bg-blue-700E"
+            href="{{ url('cart') }}">
               <i class="material-icons w-10">shopping_cart</i>
               <span class="sr-only">Notifications</span>
               <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2">8</div>
-            </button>
+            </a>
         </li>
     
         {{-- profile --}}

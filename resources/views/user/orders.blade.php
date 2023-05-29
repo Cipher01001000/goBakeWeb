@@ -1,4 +1,4 @@
-<x-app-layout title="| Orders">
+<x-layouts.app-layout title="| Orders">
 
   <x-partials.sidebar>
 
@@ -10,4 +10,4 @@
       <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/tabs.js"></script>
   @endpush
 
-</x-app-layout>
+</x-layouts.app-layout>

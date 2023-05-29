@@ -1,4 +1,4 @@
-<x-app-layout title="| Login">
+<x-layouts.app-layout title="| Login">
 
   <div class="flex flex-row items-center justify-center">
 
@@ -84,4 +84,4 @@
     
     </div>
 
-</x-app-layout>
+</x-layouts.app-layout>

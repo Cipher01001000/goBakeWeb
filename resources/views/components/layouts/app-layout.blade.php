@@ -32,13 +32,7 @@
       </li>
       <li>
         <a
-          href="#"
-          class="block font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased transition-colors hover:text-pink-500 focus:text-pink-500">
-          Contribute </a>
-      </li>
-      <li>
-        <a
-          href="#"
+          href="{{ url('contact') }}"
           class="block font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased transition-colors hover:text-pink-500 focus:text-pink-500">
           Contact Us </a>
           <div class="flex flex-col">

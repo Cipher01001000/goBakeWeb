@@ -1,4 +1,4 @@
-<x-app-layout title="| Shop">
+<x-layouts.app-layout title="| Shop">
 
   <div className="w-1/2 text-left">
     <nav aria-label="breadcrumb" class="w-max">
@@ -342,4 +342,4 @@
     </ul>
   </nav>
 
-</x-app-layout>
+</x-layouts.app-layout>
