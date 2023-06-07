@@ -81,7 +81,29 @@
   Shop by Category
 </h1>
 
-<div class="flex flex-row items-center justify-center gap-10">
+{{-- category --}}
+<div class="flex flex-row items-center justify-center gap-10 p-10">
+
+  <div class="w-96">
+    <div class="relative grid h-96 w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
+      <div class="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-cover bg-clip-border bg-center text-gray-700 shadow-none transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+        <img src="https://plus.unsplash.com/premium_photo-1679047241341-c2fb93336bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80" alt="baking-tools"
+        class="h-full w-full">
+        <div class="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50"></div>
+      </div>
+      <div class="relative p-6 py-14 px-6 md:px-12">
+        <h2 class="mb-6 block font-sans text-4xl font-medium leading-[1.5] tracking-normal text-white antialiased">
+          Custom Cakes
+        </h2>
+        <a
+            class="middle none center mr-3 rounded-lg border border-gray-50 py-3 px-6 font-sans text-xs font-bold text-gray-50 transition-all hover:opacity-75 focus:ring focus:ring-gray-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            data-ripple-dark="true"
+            href="{{ url('/cake_customization') }}">
+            Shop Now
+          </a>
+      </div>
+    </div>
+  </div>
 
   <div class="w-96">
     <div class="relative grid h-96 w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
@@ -92,7 +114,7 @@
       </div>
       <div class="relative p-6 py-14 px-6 md:px-12">
         <h2 class="mb-6 block font-sans text-4xl font-medium leading-[1.5] tracking-normal text-white antialiased">
-          Pastries
+          Baked Goods
         </h2>
         <a
             class="middle none center mr-3 rounded-lg border border-gray-50 py-3 px-6 font-sans text-xs font-bold text-gray-50 transition-all hover:opacity-75 focus:ring focus:ring-gray-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
@@ -111,7 +133,7 @@
       </div>
       <div class="relative p-6 py-14 px-6 md:px-12">
         <h2 class="mb-6 block font-sans text-4xl font-medium leading-[1.5] tracking-normal text-white antialiased">
-          Ingredients
+          Baking supplies
         </h2>
           <a
             class="middle none center mr-3 rounded-lg border border-gray-50 py-3 px-6 font-sans text-xs font-bold text-gray-50 transition-all hover:opacity-75 focus:ring focus:ring-gray-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
@@ -142,6 +164,26 @@
     </div>
   </div>
 
+  <div class="w-96">
+    <div class="relative grid h-96 w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
+      <div class="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-cover bg-clip-border bg-center text-gray-700 shadow-none transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+        <img src="https://images.unsplash.com/photo-1669221262092-5fd1232482b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=689&q=80" alt="baking-tools"
+        class="h-full">
+        <div class="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50"></div>
+      </div>
+      <div class="relative p-6 py-14 px-6 md:px-12">
+        <h2 class="mb-6 block font-sans text-4xl font-medium leading-[1.5] tracking-normal text-white antialiased">
+          Baking Equipment
+        </h2>
+        <a
+            class="middle none center mr-3 rounded-lg border border-gray-50 py-3 px-6 font-sans text-xs font-bold text-gray-50 transition-all hover:opacity-75 focus:ring focus:ring-gray-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            data-ripple-dark="true">
+            Shop Now
+          </a>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <h1 class="p-10 text-center block font-sans text-2xl text-gray-700 font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
@@ -149,7 +191,7 @@
 </h1>
 
 {{-- Products --}}
-<div class="flex flex-row gap-5 justify-center items-center"
+<div class="flex flex-row gap-10 justify-center items-center p-10"
 id="cakes">
 
   <div class="p-1 relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
@@ -276,7 +318,7 @@ id="cakes">
 
 {{-- products --}}
 
-<div class="flex flex-row justify-center items-center">
+<div class="flex flex-row justify-center gap-10 p-10 items-center">
 
   <div class="p-1 relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
     <div class="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">

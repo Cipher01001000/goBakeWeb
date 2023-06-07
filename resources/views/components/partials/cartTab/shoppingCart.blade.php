@@ -1,4 +1,4 @@
-<div class="">
+<div class="content justify-center items-center hidden" id="shopping_cart">
             
     <table class="flex justify-center items-center">
         <tr class="shadow-md">

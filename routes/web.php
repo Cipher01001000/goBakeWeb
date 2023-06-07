@@ -40,3 +40,15 @@ Route::get('/contact', function () {
 Route::get('/cart', function () {
     return view('user/cart');
 });
+
+Route::get('/product_review', function () {
+    return view('user/product_review');
+});
+
+Route::get('/seller_shop', function () {
+    return view('user/seller_shop');
+});
+
+Route::get('/cake_customization', function () {
+    return view('user/cake_customization');
+});
