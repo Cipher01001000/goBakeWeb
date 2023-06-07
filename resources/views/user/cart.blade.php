@@ -4,9 +4,12 @@
     <x-partials.cartBreadcrumb>
 
         {{-- Content --}}
-        <x-partials.cartTab.shoppingCart />
-        <x-partials.cartTab.checkout />
+        <x-partials.cartTabContent />
         
     </x-partials.cartBreadcrumb>
   
+@push('scripts')
+      <script src={{ asset('js/tab.js') }}></script>
+@endpush
+
 </x-layouts.app-layout>

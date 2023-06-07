@@ -1,0 +1,29 @@
+[33mcommit ee87ba9d17e2148c0ade1ce94b1176ef049f80e7[m[33m ([m[1;36mHEAD -> [m[1;32mtrial[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Cipher <114566913+Cipher01001000@users.noreply.github.com>
+Date:   Mon May 29 23:53:16 2023 +0800
+
+    Add cart and contact ui
+
+[33mcommit a6e0ebac44f6db4cc4334ac776336a9d3836e833[m
+Author: Cipher <114566913+Cipher01001000@users.noreply.github.com>
+Date:   Sat May 27 15:30:59 2023 +0800
+
+    Implement custom blade layout
+
+[33mcommit 50d4ec7f344a966ffc542b021eb95d59b9be69e0[m
+Author: Cipher <114566913+Cipher01001000@users.noreply.github.com>
+Date:   Thu May 25 00:26:05 2023 +0800
+
+    Add Order Page
+
+[33mcommit 11519ced46c9024664f5482d19c8d611b77ce12e[m
+Author: Cipher <114566913+Cipher01001000@users.noreply.github.com>
+Date:   Wed May 24 11:35:56 2023 +0800
+
+    Add landing page
+
+[33mcommit 3f814e8fba9bcc56f001c5511a06efe776cb54e3[m
+Author: Cipher <114566913+Cipher01001000@users.noreply.github.com>
+Date:   Fri May 19 16:30:19 2023 +0800
+
+    First Commit

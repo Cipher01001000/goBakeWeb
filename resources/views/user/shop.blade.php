@@ -20,15 +20,7 @@
         </li>
         <li class="flex cursor-pointer items-center font-sans text-sm font-normal leading-normal text-blue-gray-900 antialiased transition-colors duration-300 hover:text-pink-500">
           <a class="opacity-60" href="#">
-            <span>Ingredients</span>
-          </a>
-          <span class="pointer-events-none mx-2 select-none font-sans text-sm font-normal leading-normal text-blue-gray-500 antialiased">
-            /
-          </span>
-        </li>
-        <li class="flex cursor-pointer items-center font-sans text-sm font-normal leading-normal text-blue-gray-900 antialiased transition-colors duration-300 hover:text-pink-500">
-          <a class="opacity-60" href="#">
-            <span>Tools</span>
+            <span>Shop</span>
           </a>
           <span class="pointer-events-none mx-2 select-none font-sans text-sm font-normal leading-normal text-blue-gray-500 antialiased">
             /
@@ -39,7 +31,7 @@
             class="font-medium text-blue-gray-900 transition-colors hover:text-pink-500"
             href="#"
           >
-            Cakes
+            Baked Goods
           </a>
         </li>
       </ol>
