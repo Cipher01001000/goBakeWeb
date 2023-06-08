@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Costumer
 Route::get('/', function () {
     return view('user/index');
 });
@@ -51,4 +52,13 @@ Route::get('/seller_shop', function () {
 
 Route::get('/cake_customization', function () {
     return view('user/cake_customization');
+});
+
+Route::get('/profile', function () {
+    return view('user/profile');
+});
+
+//Seller
+Route::get('/seller', function () {
+    return view('seller/index');
 });

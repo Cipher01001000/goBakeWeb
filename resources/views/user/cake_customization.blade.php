@@ -6,7 +6,7 @@
     <div class="flex flex-col">
             
         {{-- product --}}
-        <div class="p-10 shadow-lg rounded-lg flex flex-row">
+        <div class="p-10 shadow-lg rounded-lg flex flex-row w-fit">
             
             {{-- product_image --}}
             <div class="flex flex-col">
@@ -621,7 +621,7 @@
                         >
                         <input
                             id="8_inch"
-                            name="sixe"
+                            name="size"
                             type="radio"
                             class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-pink-500 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:before:bg-pink-500 hover:before:opacity-10"
                         />
@@ -1666,7 +1666,7 @@
             </div>
 
             {{-- user_review --}}
-            <div class="flex flex-col mt-5">
+            <div class="flex flex-col mt-5 w-96">
               <div class="flex flex-col mb-5">
 
                 <hr>
@@ -1821,13 +1821,12 @@
 
                 <div class="flex flex-row">
                   <h1 class="text-gray-700 p-2 text-start">Cake Type:</h1>
-                  <h1 class="text-gray-500 p-2">₱</h1>
-                  <h1 class="text-gray-500 p-2 pl-0">666.23</h1>
+                  <h1 class="text-gray-500 p-2">Cheese Cake</h1>
                 </div>
 
                 <div class="flex flex-row">
                   <h1 class="text-gray-700 p-2 text-start">Flavor:</h1>
-                  <h1 class="text-gray-500 p-2">Cheese Cake</h1>
+                  <h1 class="text-gray-500 p-2">Blueberry</h1>
                 </div>
 
                 <div class="flex flex-row">
@@ -1873,6 +1872,11 @@
                     class="object-cover h-24 w-28 rounded-t-lg">
                     <h1 class="text-gray-800 text-center p-1">Topper 3</h1>
                   </div>
+                </div>
+
+                <div class="flex flex-row mt-5">
+                  <h1 class="text-gray-700 p-2 text-start">Message:</h1>
+                  <h1 class="text-gray-500 p-2">Happy Birthday Bogart</h1>
                 </div>
 
                 <div class="flex flex-row mt-5">

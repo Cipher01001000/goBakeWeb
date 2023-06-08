@@ -11,7 +11,7 @@
                 <img
                     src="https://images.unsplash.com/photo-1564591111131-dbdb2571cfb5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
                     class="h-24 w-24 cursor-pointer rounded-full object-cover object-center border-2 border-gray-700" 
-                    data-popover-target="profile-menu"/>
+                    data-popover-target=" "/>
                     <h1 class="font-bold pl-3 text-lg text-gray-800">Shop Name</h1>
                     <hr>
             </div>
@@ -111,7 +111,7 @@
                         <img
                             src="https://images.unsplash.com/photo-1564591111131-dbdb2571cfb5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
                             class="h-32 w-32 cursor-pointer rounded-full object-cover object-center border-2 border-gray-700 shadow-lg" 
-                            data-popover-target="profile-menu"/>
+                            data-popover-target=""/>
                     </div>
                         
                     {{-- products --}}
