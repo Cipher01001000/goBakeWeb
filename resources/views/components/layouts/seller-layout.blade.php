@@ -8,10 +8,10 @@
   @vite('resources/css/app.css')
   <link href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css"/>
 </head>
 <body>
-  <x-partials.sellerNav />
+  
+  <x-partials.seller.sellerNav />
 
   {{ $slot }}
 
@@ -60,6 +60,7 @@
 <script type="module" src="https://unpkg.com/@material-tailwind/html@latest/scripts/popover.js"></script>
 <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
 <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/collapse.js"></script>
-  @stack('scripts')
+
+@stack('scripts')
 
 </html>
