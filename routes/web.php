@@ -58,7 +58,27 @@ Route::get('/profile', function () {
     return view('user/profile');
 });
 
+Route::get('/forgot_password', function () {
+    return view('user/forgotPassword');
+});
+
+Route::get('/change_password', function () {
+    return view('user/changePassword');
+});
+
 //Seller
 Route::get('/seller', function () {
     return view('seller/index');
+});
+
+Route::get('/start_selling', function () {
+    return view('seller/startSelling');
+});
+
+Route::get('/seller_info', function () {
+    return view('seller/sellerInfo');
+});
+
+Route::get('/otp', function () {
+    return view('seller/otp');
 });

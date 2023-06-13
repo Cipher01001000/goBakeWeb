@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css"/>
 </head>
 <body>
-  <x-partials.sellerNav />
+  <x-partials.seller.sellerNav />
 
   {{ $slot }}
 

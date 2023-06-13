@@ -10,7 +10,7 @@
     <ul class="ml-auto mr-8 flex items-center gap-6 lg:hidden">
     
       <li class="block p-3 rounded-2xl text-pink-600 font-sans text-sm font-normal leading-normal text-inherit antialiased" data-ripple-dark="true">
-        <a class="flex items-center" href="{{url('')}}">
+        <a class="flex items-center" href="{{url('/start_selling')}}">
           Start Selling
         </a>
       </li>
