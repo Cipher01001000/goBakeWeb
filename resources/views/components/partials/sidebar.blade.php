@@ -44,32 +44,6 @@
             </div>
           </div>
           <hr>
-          <div id="menu" class="flex flex-col space-y-2">
-            <a
-              href=""
-              class="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out flex justify-center items-center"
-            >
-            <i class="material-icons w-6 h-6 mr-2 fill-current inline-block">person</i>
-              <span class="">My Account</span>
-            </a>
-  
-            <a
-              href=""
-              class="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out flex justify-center items-center"
-            >
-            <i class="material-icons w-6 h-6 mr-2 fill-current inline-block">shopping_bag</i>
-              <span class="">My Purchase</span>
-            </a>
-  
-            <a
-              href=""
-              class="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out flex justify-center items-center"
-            >
-            <i class="material-icons w-6 h-6 mr-2 fill-current inline-block">notifications</i>
-              <span class="">Notification</span>
-            </a>
-  
-          </div>
         </div>
       </div>
   

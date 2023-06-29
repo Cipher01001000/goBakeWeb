@@ -66,6 +66,10 @@ Route::get('/change_password', function () {
     return view('user/changePassword');
 });
 
+Route::get('/product', function () {
+    return view('user/product');
+});
+
 //Seller
 Route::get('/seller', function () {
     return view('seller/index');
@@ -81,4 +85,17 @@ Route::get('/seller_info', function () {
 
 Route::get('/otp', function () {
     return view('seller/otp');
+});
+
+Route::get('/add_product', function () {
+    return view('seller/addProduct');
+});
+
+Route::get('/customize_product', function () {
+    return view('seller/customizeProducts');
+});
+
+//admin
+Route::get('/admin', function () {
+    return view('admin/admin');
 });

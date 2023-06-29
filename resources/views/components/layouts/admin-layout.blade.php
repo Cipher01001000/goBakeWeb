@@ -11,7 +11,7 @@
 </head>
 <body>
   
-  <x-partials.nav />
+  {{-- <x-partials.admin.adminNav /> --}}
 
   {{ $slot }}
 
@@ -60,6 +60,7 @@
 <script type="module" src="https://unpkg.com/@material-tailwind/html@latest/scripts/popover.js"></script>
 <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
 <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/collapse.js"></script>
+
 @stack('scripts')
 
 </html>

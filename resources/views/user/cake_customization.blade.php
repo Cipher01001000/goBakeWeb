@@ -1887,19 +1887,21 @@
 
                 <div class="flex flex-row justify-center items-center mt-5">
 
-                  <button
+                  <a
                     class="middle none center mr-3 rounded-lg border border-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:opacity-75 focus:ring focus:ring-pink-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                     data-ripple-dark="true"
+                    href="{{ url('/cart') }}"
                   >
                     Add to cart
-                  </button>
+                  </a>
 
-                  <button
+                  <a
                     class="middle none center mr-3 rounded-lg border border-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:opacity-75 focus:ring focus:ring-pink-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                     data-ripple-dark="true"
+                    href="{{ url('/orders') }}"
                   >
                     Buy now
-                  </button>
+                  </a>
 
                 </div>
 
