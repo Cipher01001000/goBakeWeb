@@ -7,7 +7,7 @@
       class="h-16 w-16 cursor-pointer rounded-full object-cover object-center border-2 border-gray-700" 
       data-popover-target=" "/>
       <div class="flex flex-col">
-        <h1 class="font-bold pl-3 text-lg text-gray-800">Shop Name</h1>
+        <h1 class="font-bold pl-3 text-lg text-gray-800">Admin</h1>
         <div class="flex flex-row items-center justify-center gap-1">
           <i class="material-icons text-gray-600">edit</i>
           <a class="text-gray-600">Edit Profile</a>
@@ -42,7 +42,7 @@
         class="collapse_btn border-slate-100 text-slate-700 rounded-t-1 group relative flex w-full cursor-pointer items-center border-b border-solid p-4 text-left font-semibold text-dark-500 transition-all ease-in"
         data-collapse-target="animated-collapse-2"
       >
-        <span>Orders</span>
+        <span>User Management</span>
         <i class="arrow material-icons absolute right-0 pt-1 text-base transition-transform">expand_more</i>
       </button>
     </h6>
@@ -61,7 +61,7 @@
       <button
         class="collapse_btn border-slate-100 text-slate-700 rounded-t-1 group relative flex w-full cursor-pointer items-center border-b border-solid p-4 text-left font-semibold text-dark-500 transition-all ease-in"
         data-collapse-target="animated-collapse-3">
-        <span>Products</span>
+        <span>Product Management</span>
         <i class="arrow material-icons absolute right-0 pt-1 text-base transition-transform">expand_more</i>
       </button>
     </h6>
@@ -82,7 +82,7 @@
         class="collapse_btn border-slate-100 text-slate-700 rounded-t-1 group relative flex w-full cursor-pointer items-center border-b border-solid p-4 text-left font-semibold text-dark-500 transition-all ease-in"
         data-collapse-target="animated-collapse-4"
       >
-        <span>Add Products</span>
+        <span>Inquiries</span>
         <i class="arrow material-icons absolute right-0 pt-1 text-base transition-transform">expand_more</i>
       </button>
     </h6>

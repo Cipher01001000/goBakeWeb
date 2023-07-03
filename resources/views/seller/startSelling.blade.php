@@ -1,4 +1,4 @@
-<x-layouts.seller-layout title="| Home">
+<x-layouts.seller-layout title="| Start Selling">
 
     <div class="flex flex-row justify-center gap-10 items-center">
 

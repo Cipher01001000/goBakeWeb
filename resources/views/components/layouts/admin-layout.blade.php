@@ -11,7 +11,7 @@
 </head>
 <body>
   
-  <x-partials.seller.sellerNav />
+  {{-- <x-partials.admin.adminNav /> --}}
 
   {{ $slot }}
 

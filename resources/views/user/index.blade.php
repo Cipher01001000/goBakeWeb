@@ -118,7 +118,8 @@
         </h2>
         <a
             class="middle none center mr-3 rounded-lg border border-gray-50 py-3 px-6 font-sans text-xs font-bold text-gray-50 transition-all hover:opacity-75 focus:ring focus:ring-gray-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            data-ripple-dark="true" href="#cakes">
+            data-ripple-dark="true" 
+            href="{{ url('/shop') }}">
             Shop Now
           </a>
       </div>
@@ -137,7 +138,8 @@
         </h2>
           <a
             class="middle none center mr-3 rounded-lg border border-gray-50 py-3 px-6 font-sans text-xs font-bold text-gray-50 transition-all hover:opacity-75 focus:ring focus:ring-gray-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            data-ripple-dark="true">
+            data-ripple-dark="true"
+            href="{{ url('/shop') }}">
             Shop Now
           </a>
       </div>
@@ -157,7 +159,8 @@
         </h2>
         <a
             class="middle none center mr-3 rounded-lg border border-gray-50 py-3 px-6 font-sans text-xs font-bold text-gray-50 transition-all hover:opacity-75 focus:ring focus:ring-gray-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            data-ripple-dark="true">
+            data-ripple-dark="true"
+            href="{{ url('/shop') }}">
             Shop Now
           </a>
       </div>
@@ -177,7 +180,8 @@
         </h2>
         <a
             class="middle none center mr-3 rounded-lg border border-gray-50 py-3 px-6 font-sans text-xs font-bold text-gray-50 transition-all hover:opacity-75 focus:ring focus:ring-gray-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            data-ripple-dark="true">
+            data-ripple-dark="true"
+            href="{{ url('/shop') }}">
             Shop Now
           </a>
       </div>
@@ -215,12 +219,13 @@ id="cakes">
       </p>
     </div>
     <div class="p-6 pt-0">
-      <button
+      <a
         class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         type="button"
+        href="{{ url('/product') }}"
       >
         Add to Cart
-      </button>
+      </a>
     </div>
   </div>
   
@@ -245,12 +250,13 @@ id="cakes">
       </p>
     </div>
     <div class="p-6 pt-0">
-      <button
+      <a
         class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         type="button"
+        href="{{ url('/product') }}"
       >
         Add to Cart
-      </button>
+      </a>
     </div>
   </div>
   
@@ -275,12 +281,13 @@ id="cakes">
       </p>
     </div>
     <div class="p-6 pt-0">
-      <button
+      <a
         class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         type="button"
+        href="{{ url('/product') }}"
       >
         Add to Cart
-      </button>
+      </a>
     </div>
   </div>
 
@@ -305,12 +312,13 @@ id="cakes">
       </p>
     </div>
     <div class="p-6">
-      <button
+      <a
         class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         type="button"
+        href="{{ url('/product') }}"
       >
         Add to Cart
-      </button>
+      </a>
     </div>
   </div>
       
@@ -340,12 +348,13 @@ id="cakes">
       </p>
     </div>
     <div class="p-6 pt-0">
-      <button
+      <a
         class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         type="button"
+        href="{{ url('/product') }}"
       >
         Add to Cart
-      </button>
+      </a>
     </div>
   </div>
   
@@ -370,12 +379,13 @@ id="cakes">
       </p>
     </div>
     <div class="p-6 pt-0">
-      <button
+      <a
         class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         type="button"
+        href="{{ url('/product') }}"
       >
         Add to Cart
-      </button>
+      </a>
     </div>
   </div>
   
@@ -400,12 +410,13 @@ id="cakes">
       </p>
     </div>
     <div class="p-6 pt-0">
-      <button
+      <a
         class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         type="button"
+        href="{{ url('/product') }}"
       >
         Add to Cart
-      </button>
+      </a>
     </div>
   </div>
 
@@ -430,12 +441,13 @@ id="cakes">
       </p>
     </div>
     <div class="p-6 pt-0">
-      <button
+      <a
         class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         type="button"
+        href="{{ url('/product') }}"
       >
         Add to Cart
-      </button>
+      </a>
     </div>
   </div>
       
