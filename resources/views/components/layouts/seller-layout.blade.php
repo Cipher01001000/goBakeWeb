@@ -12,7 +12,8 @@
 <body>
   
   <x-partials.seller.sellerNav />
-
+  <x-partials.flashMessage/>
+  
   {{ $slot }}
 
 </body>

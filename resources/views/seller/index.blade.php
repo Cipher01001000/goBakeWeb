@@ -312,8 +312,95 @@
     </div>
 
     {{-- products --}}
-    <div class="content hidden">
-      <h1>Products</h1>
+    <div class="content hidden w-full flex-col">
+
+      {{-- search --}}
+      <form class="w-full p-5">   
+        <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+        <div class="relative">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+            <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Search" required>
+            <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-gray-700 hover:bg-gray-800 font-medium rounded-lg text-sm px-4 py-2 dark:bg-gray-600">Search</button>
+        </div>
+      </form>
+
+      <div class="my-4 w-full">
+        @unless (count($products) == 0)
+          <table class="w-full table-auto">
+            <thead>
+              <tr class="text-gray-800 bg-gray-500">
+                <th class="px-4 py-2">Name</th>
+                <th class="px-4 py-2">Price</th>
+                <th class="px-4 py-2">Stock</th>
+                <th class="px-4 py-2">Category</th>
+                <th class="px-4 py-2">Edit Product</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($products as $index => $product)
+                <tr class="{{ $index % 2 == 0 ? 'bg-gray-100' : 'bg-gray-200' }} text-gray-700 text-center">
+                  <td class="border px-4 py-2">{{ $product->name }}</td>
+                  <td class="border px-4 py-2">{{ $product->price }}</td>
+                  <td class="border px-4 py-2">{{ $product->stock }}</td>
+                  <td class="border px-4 py-2">{{ $product->category }}</td>
+                  <td class="border px-4 py-2">
+                    <div class="flex flex-row gap-3 justify-center items-center">
+                      <a href="/seller/{{ $product->id }}/edit">
+                        <button
+                        class="flex select-none items-center rounded-lg bg-gradient-to-tr from-green-600 to-green-400 py-1 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                        type="button"
+                        data-ripple-light="true"
+                        >
+                        <i class="material-icons mr-1">edit</i>
+                        Update
+                      </button>
+                      </a>
+                      <i class="material-icons underline text-red-700 cursor-pointer">
+                        <form method="POST" action="seller/{{ $product->id }}">
+                          @csrf
+                          @method('DELETE')
+                          <button
+                            class="flex select-none items-center rounded-lg bg-gradient-to-tr from-red-600 to-red-400 py-1 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-red-500/20 transition-all hover:shadow-lg hover:shadow-red-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                            data-ripple-light="true"
+                            onclick="return confirm('Are you sure you want to delete this product?')"
+                            >
+                            <i class="material-icons mr-1">delete</i>
+                            Delete
+                          </button>
+                        </form>
+                      </i>
+                    </div>
+                  </td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+        @else
+          <div class="flex flex-row items-center justify-center py-2">
+            <i class="material-icons text-gray-700 pr-1">inventory_2</i>
+            <div class="text-gray-700 font-bold text-2xl">Empty items!</div>
+          </div>
+          <div class="flex justify-center items-center">
+            <a
+            class="middle none center mr-4 rounded-lg bg-green-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            data-ripple-light="true"
+            href="{{ url('/add_product') }}"
+            >
+            <div class="flex flex-row justify-center items-center">
+              Add product
+              <div class="material-icons ml-1">add_circle_outline</div>
+            </div>
+            </a>
+          </div>
+        @endunless
+      </div>
+      
+      <div class="mt-6 p-4">
+        {{ $products->links() }}
+      </div>
+      
     </div>
 
     {{-- add products --}}
@@ -387,7 +474,9 @@
   });
 </script>
 <script src={{ asset('js/tab.js') }}></script>
-<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/tabs.js"></script>
+<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/tabs.js"></script>\
+<script src="//unpkg.com/alpinejs" defer></script>
+  <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/dismissible.js"></script>
 @endpush 
   
 </x-layouts.seller-layout>

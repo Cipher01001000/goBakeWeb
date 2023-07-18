@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,19 +15,37 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//Common Resource Routes:
+//index - Show all products
+//show - Show single product
+//create - Show form to create new product
+//store - Store new product
+//edit - Show form to edit product
+//update - Update product
+//destroy - Delete product
 
 // Costumer
-Route::get('/', function () {
-    return view('user/index');
-});
 
-Route::get('/login', function () {
-    return view('user/login');
-});
+//all products
+Route::get('/', [ProductController::class, 'index']);
 
-Route::get('/register', function () {
-    return view('user/register');
-});
+//single product
+Route::get('/products/{product}', [ProductController::class, 'show']);
+
+//show register create form
+Route::get('/register', [UserController::class, 'create']);
+
+//ceate new user
+Route::post('/users', [UserController::class, 'store']);
+
+//user logout
+Route::post('/logout', [UserController::class, 'logout']);
+
+//show login form
+Route::get('/login', [UserController::class, 'login']);
+
+//login user
+Route::post('/user/authenticate', [UserController::class, 'authenticate']);
 
 Route::get('/shop', function () {
     return view('user/shop');
@@ -66,11 +87,28 @@ Route::get('/change_password', function () {
     return view('user/changePassword');
 });
 
-Route::get('/product', function () {
-    return view('user/product');
+Route::get('/qr_code_payment', function () {
+    return view('user/qrCode');
+});
+
+Route::get('/equipment', function () {
+    return view('user/equipment');
+});
+
+Route::get('/cancellation_reason', function () {
+    return view('user/cancellationReason');
+});
+
+Route::get('/baking_supplies', function () {
+    return view('user/bakingSupplies');
+});
+
+Route::get('/baking_tools', function () {
+    return view('user/bakingTools');
 });
 
 //Seller
+
 Route::get('/seller', function () {
     return view('seller/index');
 });
@@ -87,9 +125,23 @@ Route::get('/otp', function () {
     return view('seller/otp');
 });
 
-Route::get('/add_product', function () {
-    return view('seller/addProduct');
-});
+//show create form
+Route::get('/add_product', [ProductController::class, 'create']);
+
+//store product data
+Route::post('/seller', [ProductController::class, 'store']);
+
+//display data in seller inventory
+Route::get('/seller', [ProductController::class, 'seller_product']);
+
+//show edit form
+Route::get('/seller/{product}/edit', [ProductController::class, 'edit']);
+
+//update product
+Route::put('/seller/{product}', [ProductController::class, 'update']);
+
+//delete product
+Route::delete('/seller/{product}', [ProductController::class, 'destroy']);
 
 Route::get('/customize_product', function () {
     return view('seller/customizeProducts');

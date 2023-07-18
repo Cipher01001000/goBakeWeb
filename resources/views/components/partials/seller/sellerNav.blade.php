@@ -11,12 +11,12 @@
   
     <li class="block p-3 rounded-2xl text-pink-600 font-sans text-sm font-normal leading-normal text-inherit antialiased" data-ripple-dark="true">
       <a class="flex items-center" href="{{url('')}}">
-        Start Selling
+        Go to shop
       </a>
     </li>
   
       <li class="block p-3 rounded-2xl font-sans text-sm font-normal leading-normal text-inherit antialiased" data-ripple-dark="true">
-        <a class="flex items-center" href="{{url('')}}">
+        <a class="flex items-center" href="{{url('/seller')}}">
           Home
         </a>
       </li>

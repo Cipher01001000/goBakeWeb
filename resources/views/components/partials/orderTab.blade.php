@@ -254,6 +254,12 @@
                 </p>
               </div>
               <div class="flex flex-row items-center justify-center gap-3">
+                <a
+                  class="middle none center rounded-lg bg-deep-orange-700 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-deep-orange-700/20 transition-all hover:shadow-lg hover:shadow-deep-orange-700/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                  data-ripple-light="true"
+                  href="{{ url('/cancellation_reason') }}">
+                  Cancel
+                </a>
                 <button
                   class="middle none center rounded-lg bg-green-700 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-700/20 transition-all hover:shadow-lg hover:shadow-green-700/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                   data-ripple-light="true">

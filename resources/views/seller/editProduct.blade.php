@@ -1,9 +1,10 @@
-<x-layouts.seller-layout title="| Add Product">
+<x-layouts.seller-layout title="| Edit Product">
 
-    <form action="/seller" method="POST" enctype="multipart/form-data">
+    <form action="/seller/{{ $product->id }}" method="POST" enctype="multipart/form-data">
         @csrf
-    <div class="p-10">
-        <div class="font-bold text-gray-700 text-2xl">Basic information</div>
+        @method('PUT')
+    <div class="p-10"> 
+        <div class="font-bold text-gray-700 text-2xl">Edit: {{ $product->name }}</div>
 
         <div class="flex flex-col">
           <div class="flex flex-row px-10 pt-10 items-center">
@@ -16,22 +17,26 @@
             >
         </div>
             @error('product_image')
-              <p class="text-red-500 text-xs p-1">{{ $message }}</p>
+            <div class="flex flex-row p-3 items-center">
+                <div class="material-icons text-red-500 mr-1">error</div>
+                <p class="text-red-500 text-xs">{{ $message }}</p>
+            </div>
             @enderror
         </div>
-        
-        <div class="add_image w-48 mt-5 ml-52 p-10 border-dashed border-gray-600 border-2 flex flex-col justify-center items-center">
-            <i class="material-icons text-gray-600">image</i>
-            <p class="text-gray-600">Image</p>
-            <div class="flex flex-row">
-                <p class="text-gray-600">(</p>
-                <p class="text-gray-600">0</p>
-                <p class="text-gray-600">/</p>
-                <p class="text-gray-600">9</p>
-                <p class="text-gray-600">)</p>
-            </div>
+        <div class="flex flex-row gap-2 items-center">
+            {{-- <div class="add_image w-48 h-48 mt-5 ml-52 p-10 border-dashed border-gray-600 border-2 flex flex-col justify-center items-center">
+                <i class="material-icons text-gray-600">image</i>
+                <p class="text-gray-600">Image</p>
+                <div class="flex flex-row">
+                    <p class="text-gray-600">(</p>
+                    <p class="text-gray-600">0</p>
+                    <p class="text-gray-600">/</p>
+                    <p class="text-gray-600">9</p>
+                    <p class="text-gray-600">)</p>
+                </div>
+            </div> --}}
+            <img src="{{ $product->product_image ? asset('storage/' . $product->product_image) : asset('images/no-image.jpg') }}" class="w-48 h-48 mt-5 object-cover ml-52 rounded-lg" />
         </div>
-
         {{-- <div class="flex-flex-row">
             <div class="flex flex-row px-10 pt-10 items-center">
                 <h1 class="text-gray-600 text-lg w-48">Product Video</h1>
@@ -59,7 +64,7 @@
                     class="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                     placeholder=" "
                     name="name"
-                    value="{{ old('name') }}"
+                    value="{{ $product->name }}"
                   />
                   @error('name')
                     <p class="text-red-500 text-xs p-1">{{ $message }}</p>
@@ -74,8 +79,8 @@
                     <select class="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 empty:!bg-red-500 focus:border-2 focus:border-blue-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                     required
                     name="category"
-                    value="{{ old('category') }}">
-                      <option value="">Category</option>
+                    >
+                      <option value="{{ $product->category }}">Category</option>
                       <option value="Cake">Cake</option>
                       <option value="Ingredients">Ingredients</option>
                       <option value="Baking tools">Baking tools</option>
@@ -93,7 +98,7 @@
                 placeholder=" "
                 type="number"
                 name="stock"
-                value="{{ old('stock') }}"
+                value="{{ $product->stock }}"
                 required
                 />
                 @error('stock')
@@ -106,7 +111,7 @@
                 class="text-center peer h-full w-36 rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                 placeholder=" "
                 name="price"
-                value="{{ old('price') }}"
+                value="{{ $product->price }}"
                 required
                 />
                 @error('price')
@@ -124,7 +129,7 @@
                     placeholder=" "
                     name="description"
                   >
-                  {{ old('description') }}
+                  {{ $product->description }}
                   </textarea>
                   @error('description')
                     <p class="text-red-500 text-xs p-1">{{ $message }}</p>
@@ -148,7 +153,7 @@
               type="submit"
               class="middle none center rounded-lg bg-gradient-to-tr from-green-600 to-green-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             >
-              Add product
+              Update product
             </button>
           </div>
         
