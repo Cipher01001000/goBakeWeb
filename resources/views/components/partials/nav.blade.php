@@ -1,16 +1,27 @@
+@php
+    use App\Http\Controllers\ProductController;
+    $cartItemTotal = ProductController::cartItem();
+@endphp
+
 <nav class="sticky inset-0 z-10 block h-max w-full max-w-full rounded-none border border-white/80 bg-white bg-opacity-80 py-2 px-4 text-white shadow-md backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4">
     <div class="flex items-center text-gray-900">
+      
+      <a href="">
+      <img class="w-10"
+      src="{{ asset('images/gobake_logo.png') }}" 
+      alt="gobake_logo">
+      </a>
       <a
-        href="{{url('')}}"
+        href="{{url('/')}}"
         class="mr-4 block cursor-pointer py-1.5 font-sans text-base font-medium leading-relaxed text-inherit antialiased"
       >
         GoBake
-      </a>
+    </a>
     
     <ul class="ml-auto mr-8 flex items-center gap-6 lg:hidden">
     
       <li class="block p-3 rounded-2xl text-pink-600 font-sans text-sm font-normal leading-normal text-inherit antialiased" data-ripple-dark="true">
-        <a class="flex items-center" href="{{url('/start_selling')}}">
+        <a class="flex items-center" target="_blank" href="{{url('/start_selling')}}">
           Start Selling
         </a>
       </li>
@@ -41,27 +52,37 @@
         <a data-ripple-dark="true"
           tabIndex="-1"
           role="menuitem"
-          href="{{url('shop')}}"
+          href="{{url('/cake')}}"
           class="flex w-full cursor-pointer select-none items-center justify-center gap-2 rounded-md px-3 pt-[9px] pb-2 text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
           <p class="block font-sans text-sm font-normal leading-normal text-inherit antialiased">
-            Pastry Products
+            Cake
           </p>
         </a>
     
         <a data-ripple-dark="true"
           tabIndex="-1"
           role="menuitem"
-          href="{{url('shop')}}"
+          href="{{url('/baking_supplies')}}"
           class="flex w-full cursor-pointer select-none items-center justify-center gap-2 rounded-md px-3 pt-[9px] pb-2 text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
           <p class="block font-sans text-sm font-normal leading-normal text-inherit antialiased">
-            Ingredients
+            Baking Supplies
           </p>
         </a>
     
         <a data-ripple-dark="true"
           tabIndex="-1"
           role="menuitem"
-          href="{{url('shop')}}"
+          href="{{url('/baking_tools')}}"
+          class="flex w-full cursor-pointer select-none items-center justify-center gap-2 rounded-md px-3 pt-[9px] pb-2 text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+          <p class="block font-sans text-sm font-normal leading-normal text-inherit antialiased">
+            Baking Tools
+          </p>
+        </a>
+
+        <a data-ripple-dark="true"
+          tabIndex="-1"
+          role="menuitem"
+          href="{{url('/baking_equipment')}}"
           class="flex w-full cursor-pointer select-none items-center justify-center gap-2 rounded-md px-3 pt-[9px] pb-2 text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
           <p class="block font-sans text-sm font-normal leading-normal text-inherit antialiased">
             Baking Equipments
@@ -93,10 +114,12 @@
         {{-- shoping cart --}}
         <li>
             <a type="button" class="relative inline-flex items-center p-1 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:outline-none dark:bg-blue-600 dark:hover:bg-blue-700E"
-            href="{{ url('cart') }}">
+            href="{{ url('/cart') }}">
               <i class="material-icons w-10">shopping_cart</i>
               <span class="sr-only">Notifications</span>
-              <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2">8</div>
+            @unless ($cartItemTotal == 0)
+            <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2">{{ $cartItemTotal }}</div>
+            @endunless
             </a>
         </li>
 
@@ -255,12 +278,13 @@
             </p>
           </button>
           <hr class="my-2 border-blue-gray-50" tabindex="-1" role="menuitem" />
-          <form method="POST" action="/logout">
+          <form method="POST" 
+            action="/logout"
+            onsubmit="return userLogout(this);">
             @csrf
             <button
             tabIndex="-1"
             role="menuitem"
-            onclick="return confirm('Are you sure you want to logout?')"
             class="flex w-full cursor-pointer select-none items-center gap-2 rounded-md px-3 pt-[9px] pb-2 text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
           >
             <svg

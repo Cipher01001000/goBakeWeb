@@ -77,7 +77,6 @@
                     value="{{ old('category') }}">
                       <option value="">Category</option>
                       <option value="Cake">Cake</option>
-                      <option value="Ingredients">Ingredients</option>
                       <option value="Baking tools">Baking tools</option>
                       <option value="Baking equipments">Baking equipments</option>
                       <option value="Baking supplies">Baking supplies</option>

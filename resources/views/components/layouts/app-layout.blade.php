@@ -8,13 +8,17 @@
   @vite('resources/css/app.css')
   <link href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  @livewireStyles
 </head>
-<body>
+<body class="">
+  @include('sweetalert::alert')
   <x-partials.nav />
   <x-partials.flashMessage />
 
   {{ $slot }}
 
+  @livewireScripts
 </body>
 <footer class="w-full bg-white p-8">
   <div class="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between">
@@ -57,6 +61,22 @@
     © 2023 IT Horizon | GoBake
   </p>
 </footer>
+<script type="text/javascript">
+  function userLogout(form){
+    swal({
+      title:"Logout",
+      text:"Are you sure to log out?",
+      icon:"warning",
+      buttons:true,
+      dangerMode:true
+    }).then((isOkay)=>{
+      if(isOkay){
+       form.submit();
+      }
+    });
+    return false;
+  }
+</script>
 <script type="module" src="https://unpkg.com/@material-tailwind/html@latest/scripts/popover.js"></script>
 <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
 <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/collapse.js"></script>

@@ -21,10 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'contact_number',
-        'municipality',
-        'barangay',
-        'house_no',
-        'zip_code',
+        'role_id',
+        // 'municipality',
+        // 'barangay',
+        // 'house_no',
+        // 'zip_code',
         'password',
     ];
 
@@ -46,4 +47,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Relationship with products
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'user_id');
+    }
+
+    //Relationship with orders
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'user_id');
+    }
 }

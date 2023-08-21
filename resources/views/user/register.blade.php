@@ -2,7 +2,7 @@
 
   <div class="flex flex-row items-center justify-center">
 
-    <div class="p-10 w-1/2">
+    <div class="w-1/2">
     
       <main class="bg-gray-100 max-w-lg mx-auto p-5 rounded-lg shadow-2xl m-10">
         <form method="POST" action="/users" class="flex flex-col">
@@ -13,7 +13,16 @@
         <p class="mt-1 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
           Enter your details to register.
         </p>
-  
+        
+        <div class="w-full mt-5 mb-5">
+          <select class="peer w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 empty:!bg-red-500 focus:border-2 focus:border-blue-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+          name="role_id"
+          required>
+            <option value="">Register as:</option>
+            <option value="2">Buyer</option>
+            <option value="3">Seller</option>
+          </select>
+        
           <div class="w-full mt-5 mb-5">
             <div class="relative h-10 w-full min-w-[200px]">
               <input
@@ -68,7 +77,7 @@
             </div>
           </div>
   
-          <div class="w-full mt-5 mb-5">
+          {{-- <div class="w-full mt-5 mb-5">
             <select class="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 empty:!bg-red-500 focus:border-2 focus:border-blue-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
             name="municipality"
             required>
@@ -175,7 +184,7 @@
                   Zip Code
                 </label>
               </div>
-            </div>
+            </div> --}}
   
   
           <div class="w-full mt-5 mb-5">
@@ -214,7 +223,7 @@
             </div>
           </div>
       
-          <div class="inline-flex items-center">
+          <div class="flex items-center">
             <label
               class="relative -ml-2.5 flex cursor-pointer items-center rounded-full p-3"
               htmlFor="checkbox"
@@ -259,7 +268,7 @@
           </div>
       
           <button
-        class="middle none center rounded-lg bg-blue-500 py-3 px-6 font-sans text-xs font-bold text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none mt-5 mb-5"
+        class="middle none center w-full rounded-lg bg-blue-500 py-3 px-6 font-sans text-xs font-bold text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none mt-5 mb-5"
         data-ripple-light="true">
         Sign Up
         </button>
@@ -279,7 +288,7 @@
   
     </div>
   
-    <div class="p-10">
+    <div class="">
     
       <h1 class="block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
         Join the Baking Revolution with GoBake:
@@ -295,7 +304,7 @@
       <div class="relative mx-4 mt-4 h-full overflow-hidden rounded-lg shadow-sm bg-white bg-clip-border text-gray-700">
         <img
           src="https://images.unsplash.com/photo-1576618148261-810425853baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=749&q=80"
-          class="h-full w-full object-cover"
+          class="h-96 w-full object-cover"
         />
       </div>
     

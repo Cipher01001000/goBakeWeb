@@ -1,4 +1,4 @@
-<div class="w-64 h-screen shadow-lg rounded-md bg-gray-100">
+<div class="w-64 h-screen fixed shadow-lg rounded-md bg-gray-100">
 
     {{-- user propfile --}}
     <div class="flex flex-row items-center py-10 px-5">
@@ -18,7 +18,7 @@
     </div>
 
     <a 
-    href="#"
+    href="{{ url('/seller') }}"
     class="tab_btn flex flex-row gap-3 p-5 items-center pl-16 text-gray-700 font-bold w-64">
         <i class="material-icons text-gray-500">dashboard</i>
         Dashboard
@@ -26,7 +26,7 @@
     <hr>
 
     <a 
-    href="#"
+    href="{{ url('/customerOrder') }}"
     class="tab_btn flex flex-row gap-3 p-5 items-center pl-16 text-gray-700 font-bold w-64">
         <i class="material-icons text-gray-500">description</i>
         Orders
@@ -34,7 +34,7 @@
     <hr>
 
     <a 
-    href="#"
+    href="{{ url('/sellerProduct') }}"
     class="tab_btn flex flex-row gap-3 p-5 items-center pl-16 text-gray-700 font-bold w-64">
         <i class="material-icons text-gray-500">shopping_bag</i>
         Products
@@ -42,11 +42,31 @@
     <hr>
 
     <a 
-    href="#"
+    href="{{ url('/addProductMenu') }}"
     class="tab_btn flex flex-row gap-3 p-5 items-center pl-16 text-gray-700 font-bold w-64">
         <i class="material-icons text-gray-500">add_circle_outline</i>
         Add product
     </a>
     <hr>
-
+    <hr>
+    @auth
+    <form method="POST" 
+        action="/sellerLogout" 
+        onsubmit="return sellerLogout(this);">
+        @csrf
+        <button
+        type="submit"
+        class="tab_btn flex flex-row gap-3 p-5 items-center pl-16 text-gray-700 font-bold w-64">
+            <i class="material-icons text-gray-500">logout</i>
+            Logout
+        </button>
+    </form>
+    @else
+    <li class="block p-3 rounded-2xl font-sans text-sm font-normal leading-normal text-inherit antialiased" data-ripple-dark="true">
+        <a class="flex items-center flex-row" href="{{url('login')}}">
+        <i class="material-icons mr-1 text-gray-700">account_circle</i>
+        Sign in
+        </a>
+    </li>
+    @endauth
 </div>

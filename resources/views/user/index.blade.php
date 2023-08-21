@@ -1,4 +1,4 @@
-<x-layouts.app-layout title="| Home">
+  <x-layouts.app-layout title="| Home">
 
   {{-- <div class="bg-gradient-to-r from-cyan-300 to-cyan-100 flex flex-row mx-10 rounded-sm justify-center items-center"
     id="head">
@@ -122,7 +122,7 @@
         <a
             class="middle none center mr-3 rounded-lg border border-gray-50 py-3 px-6 font-sans text-xs font-bold text-gray-50 transition-all hover:opacity-75 focus:ring focus:ring-gray-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             data-ripple-dark="true" 
-            href="{{ url('/shop') }}">
+            href="{{ url('/cake') }}">
             Shop Now
           </a>
       </div>
@@ -184,7 +184,7 @@
         <a
             class="middle none center mr-3 rounded-lg border border-gray-50 py-3 px-6 font-sans text-xs font-bold text-gray-50 transition-all hover:opacity-75 focus:ring focus:ring-gray-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             data-ripple-dark="true"
-            href="{{ url('/equipment') }}">
+            href="{{ url('/baking_equipment') }}">
             Shop Now
           </a>
       </div>
@@ -253,6 +253,7 @@
 
 @push('scripts')
   <script src="//unpkg.com/alpinejs" defer></script>
+  <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/dialog.js"></script>
   <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/dismissible.js"></script>
 @endpush
 

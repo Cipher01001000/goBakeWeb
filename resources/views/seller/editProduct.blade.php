@@ -142,12 +142,13 @@
         </div>
         
         <div class="flex shrink-0 flex-wrap items-center justify-end p-4 text-blue-gray-500 gap-5">
-            <button
+            <a
               data-ripple-dark="true"
               class="middle none center mr-1 rounded-lg py-3 px-6 font-sans text-xs font-bold uppercase text-red-500 transition-all hover:bg-red-500/10 active:bg-red-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              href="{{ url('/sellerProduct') }}"
             >
               Cancel
-            </button>
+            </a>
             <button
               data-ripple-light="true"
               type="submit"

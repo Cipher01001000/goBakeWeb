@@ -38,300 +38,53 @@
       </nav>
     </div>
     
-    <div class="flex flex-row">
-    
-      <div class="p-1 relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+    {{-- Products --}}
+<div class="flex flex-row gap-10 justify-center items-center p-5" id="cakes">
+  @unless (count($products) == 0 )
+    @foreach ($products as $index => $product)
+      <div class="p-1 w-96 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
         <div class="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
-          <img
-            src="https://images.unsplash.com/photo-1669221295912-9f78d2947372?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1167&q=80"
-            class="h-full w-full object-cover"
-          />
+          <img src="{{ $product->product_image ? asset('storage/' . $product->product_image) : asset('images/no-image.jpg') }}" class="h-full w-96 object-cover" />
         </div>
-        <div class="p-6">
-          <div class="mb-2 flex items-center justify-between">
+        <div class="p-6 w-72">
+          <div class="mb-2 flex flex-col items-start justify-start">
             <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              Cake Decorating Piping
+              {{ $product->name }}
             </p>
-            <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              ₱79.00
-            </p>
+            <div class="flex flex-row justify-center items-center">
+              <div class="text-gray-900 pr-1">₱</div>
+              <p class="block text-end font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
+                {{ $product->price }}
+              </p>
+            </div>
           </div>
           <p class="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima magnam quasi aperiam ut. Fugit, harum. Dicta quisquam repellendus rerum ipsum aut.
+            {{ $product->description }}
           </p>
         </div>
         <div class="p-6 pt-0">
-          <button
-            class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            Add to Cart
-          </button>
+          <a class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button" href="/products/{{ $product->id }}">
+            View product
+          </a>
         </div>
       </div>
-      
-      <div class="p-1 relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-        <div class="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
-          <img
-            src="https://images.unsplash.com/photo-1608218285630-902633b90391?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-            class="h-full w-full object-cover"
-          />
+
+      @if (($index + 1) % 4 == 0 && ($index + 1) != count($products))
         </div>
-        <div class="p-6">
-          <div class="mb-2 flex items-center justify-between">
-            <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              Product Name
-            </p>
-            <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              ₱231.00
-            </p>
-          </div>
-          <p class="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum ex consequatur ab tempore libero quaerat exercitationem enim est illum.
-          </p>
-        </div>
-        <div class="p-6 pt-0">
-          <button
-            class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            Add to Cart
-          </button>
-        </div>
-      </div>
-      
-      <div class="p-1 relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-        <div class="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
-          <img
-            src="https://images.unsplash.com/photo-1671098503773-89de586ae909?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1167&q=80"
-            class="h-full w-full object-cover"
-          />
-        </div>
-        <div class="p-6">
-          <div class="mb-2 flex items-center justify-between">
-            <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              Heart Shaped Cookie Cutter
-            </p>
-            <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              ₱125.00
-            </p>
-          </div>
-          <p class="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus unde rerum blanditiis nobis suscipit ducimus sunt et.
-          </p>
-        </div>
-        <div class="p-6 pt-0">
-          <button
-            class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            Add to Cart
-          </button>
-        </div>
-      </div>
-    
-      <div class="p-1 relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-        <div class="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
-          <img
-            src="https://images.unsplash.com/photo-1532499016263-f2c3e89de9cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
-            class="h-full w-full object-cover"
-          />
-        </div>
-        <div class="p-6">
-          <div class="mb-2 flex items-center justify-between">
-            <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              Product Name
-            </p>
-            <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              ₱237.00
-            </p>
-          </div>
-          <p class="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor esse, officia, laborum beatae harum unde sint ullam commodi
-          </p>
-        </div>
-        <div class="p-6 pt-0">
-          <button
-            class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            Add to Cart
-          </button>
-        </div>
-      </div>
-          
+        <div class="flex flex-row gap-10 justify-center items-center p-5" id="cakes">
+      @endif
+    @endforeach
+  @else
+    <div class="flex flex-row items-center justify-center">
+      <i class="material-icons text-gray-700 pr-1">inventory_2</i>
+      <div class="text-gray-700 font-bold text-2xl">Empty items!</div>
     </div>
-  
-    {{-- products --}}
-    <div class="flex flex-row">
-  
-      <div class="p-1 relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-        <div class="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
-          <img
-            src="https://images.unsplash.com/photo-1553558603-707b3cd37f57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=646&q=80"
-          />
-        </div>
-        <div class="p-6">
-          <div class="mb-2 flex items-center justify-between">
-            <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              Product Name
-            </p>
-            <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              ₱198.00
-            </p>
-          </div>
-          <p class="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde consectetur doloremque aliquid quasi consequatur architecto
-          </p>
-        </div>
-        <div class="p-6 pt-0">
-          <button
-            class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            Add to Cart
-          </button>
-        </div>
-      </div>
-      
-      <div class="p-1 relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-        <div class="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
-          <img
-            src="https://images.unsplash.com/photo-1540660290370-8aa90e451e8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
-            class="h-full w-full object-cover"
-          />
-        </div>
-        <div class="p-6">
-          <div class="mb-2 flex items-center justify-between">
-            <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              Product Name
-            </p>
-            <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              ₱195.00
-            </p>
-          </div>
-          <p class="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam voluptate earum neque repellat fugit labore assumenda dolorem!
-          </p>
-        </div>
-        <div class="p-6 pt-0">
-          <button
-            class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            Add to Cart
-          </button>
-        </div>
-      </div>
-      
-      <div class="p-1 relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-        <div class="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
-          <img
-            src="https://images.unsplash.com/photo-1597528662465-55ece5734101?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
-            class="h-full w-full object-cover"
-          />
-        </div>
-        <div class="p-6">
-          <div class="mb-2 flex items-center justify-between">
-            <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              Product Name
-            </p>
-            <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              ₱125.00
-            </p>
-          </div>
-          <p class="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure consequatur perspiciatis nesciunt maxime hic itaque quo.
-          </p>
-        </div>
-        <div class="p-6 pt-0">
-          <button
-            class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            Add to Cart
-          </button>
-        </div>
-      </div>
-    
-      <div class="p-1 relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-        <div class="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
-          <img
-            src="https://plus.unsplash.com/premium_photo-1663047600157-3d042098e0f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-            class="h-full w-full object-cover"
-          />
-        </div>
-        <div class="p-6">
-          <div class="mb-2 flex items-center justify-between">
-            <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              Product Name
-            </p>
-            <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              ₱245.00
-            </p>
-          </div>
-          <p class="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur libero iusto sint et officiis quasi nostrum
-          </p>
-        </div>
-        <div class="p-6 pt-0">
-          <button
-            class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            Add to Cart
-          </button>
-        </div>
-      </div>
-          
-    </div>
-    
-    {{-- Pagenation --}}
-    <nav class="p-10 flex items-center justify-center">
-      <ul class="flex">
-        <li>
-          <a
-            class="mx-1 flex h-9 w-9 items-center justify-center rounded-full border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300"
-            href="#"
-            aria-label="Previous"
-          >
-            <span class="material-icons text-sm">keyboard_arrow_left</span>
-          </a>
-        </li>
-        <li>
-          <a
-            class="mx-1 flex h-9 w-9 items-center justify-center rounded-full bg-pink-500 p-0 text-sm text-white shadow-md transition duration-150 ease-in-out"
-            href="#"
-          >
-            1
-          </a>
-        </li>
-        <li>
-          <a
-            class="mx-1 flex h-9 w-9 items-center justify-center rounded-full border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300"
-            href="#"
-          >
-            2
-          </a>
-        </li>
-        <li>
-          <a
-            class="mx-1 flex h-9 w-9 items-center justify-center rounded-full border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300"
-            href="#"
-          >
-            3
-          </a>
-        </li>
-        <li>
-          <a
-            class="mx-1 flex h-9 w-9 items-center justify-center rounded-full border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300"
-            href="#"
-            aria-label="Next"
-          >
-            <span class="material-icons text-sm">keyboard_arrow_right</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
+  @endunless
+  </div>
+</div>
+
+<div class="mt-6 p-4">
+  {{ $products->links() }}
+</div>
   
   </x-layouts.app-layout>
