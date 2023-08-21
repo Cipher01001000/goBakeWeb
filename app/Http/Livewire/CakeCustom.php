@@ -22,6 +22,9 @@ class CakeCustom extends Component
     public $imageDecorations = [];
     public $cakeDecorations = [];
     public $cakeDecorationPrices = [];
+    public $imageToppers = [];
+    public $cakeToppers = [];
+    public $cakeTopperPrices = [];
 
     public $newCakeType;
     public $newCakeTypePrice;
@@ -34,14 +37,19 @@ class CakeCustom extends Component
     public $newCakeDecoration;
     public $newCakeDecorationPrice;
     public $newDecorationImg;
+    public $newCakeTopper;
+    public $newCakeTopperPrice;
+    public $newTopperImg;
 
 
-    protected $listeners = ['fileUpload' => 'handleFileUpload'];
 
-    public function handleFileUpload($imageData)
-    {
-        $this->newDecorationImg = $imageData;
-    }
+    // protected $listeners = ['fileUpload' => 'handleFileUpload'];
+
+    // public function handleFileUpload($imageData)
+    // {
+    //     $this->newDecorationImg = $imageData;
+    //     $this->imageDecorations = $imageData;
+    // }
 
     public function addCakeType()
     {
@@ -232,7 +240,7 @@ class CakeCustom extends Component
         $this->validate([
             'newCakeDecoration' => 'required',
             'newCakeDecorationPrice' => 'required|regex:/^\d{1,13}(\.\d{1,2})?$/',
-            'newDecorationImg' => 'required'
+            'newDecorationImg' => 'required' // Maximum file size 2MB, adjust as needed 'required|image|max:2048'
         ]);
 
         // Check if customCake already exists
@@ -240,38 +248,120 @@ class CakeCustom extends Component
         $checkCakeCustom = ModelsCakeCustom::where('user_id', $user_id)->first();
 
         if ($checkCakeCustom) {
+            //handle image upload and storage
+            $imagePath = $this->storeImage($this->newDecorationImg);
+
             // Update the existing entry
             $cakeDecorationData = json_decode($checkCakeCustom->cake_decoration, true);
             $cakeDecorationPriceData = json_decode($checkCakeCustom->cake_decoration_price, true);
+            $cakeDecorationImageData = json_decode($checkCakeCustom->image_decoration, true);
 
             array_unshift($cakeDecorationData, ['cake_decoration' => $this->newCakeDecoration]);
             array_unshift($cakeDecorationPriceData, ['cake_decoration_price' => $this->newCakeDecorationPrice]);
+            array_unshift($cakeDecorationImageData, ['image_decoration' => $imagePath]);
 
             $checkCakeCustom->cake_decoration = json_encode($cakeDecorationData);
             $checkCakeCustom->cake_decoration_price = json_encode($cakeDecorationPriceData);
+            $checkCakeCustom->image_decoration = json_encode($cakeDecorationImageData);
             $checkCakeCustom->save();
         }
 
         array_unshift($this->cakeDecorations, ['cake_decoration' => $this->newCakeDecoration]);
         array_unshift($this->cakeDecorationPrices, ['cake_decoration_price' => $this->newCakeDecorationPrice]);
+        $this->newDecorationImg = $this->storeImage($this->newDecorationImg);
+        array_unshift($this->imageDecorations, ['image_decoration' => $this->newDecorationImg]);
 
         // Reset input fields
         $this->newCakeDecoration = '';
         $this->newCakeDecorationPrice = '';
+        $this->newDecorationImg = null;
     }
 
     public function deleteCakeDecoration($index)
     {
-        if (isset($this->cakeDecorations[$index]) && isset($this->cakeDecorationPrices[$index])) {
+        if (isset($this->cakeDecorations[$index]) && isset($this->cakeDecorationPrices[$index]) && isset($this->imageDecorations[$index])) {
+            unset($this->imageDecorations[$index]);
             unset($this->cakeDecorations[$index]);
             unset($this->cakeDecorationPrices[$index]);
 
             // Re-index the arrays
+            $this->imageDecorations = array_values($this->imageDecorations);
             $this->cakeDecorations = array_values($this->cakeDecorations);
             $this->cakeDecorationPrices = array_values($this->cakeDecorationPrices);
 
             $this->updateDatabase();
         }
+    }
+
+    public function addCakeTopper()
+    {
+        $this->validate([
+            'newCakeTopper' => 'required',
+            'newCakeTopperPrice' => 'required|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'newTopperImg' => 'required' // Maximum file size 2MB, adjust as needed 'required|image|max:2048'
+        ]);
+
+        // Check if customCake already exists
+        $user_id = auth()->id();
+        $checkCakeCustom = ModelsCakeCustom::where('user_id', $user_id)->first();
+
+        if ($checkCakeCustom) {
+            //handle image upload and storage
+            $imagePath = $this->storeImage($this->newTopperImg);
+
+            // Update the existing entry
+            $cakeTopperData = json_decode($checkCakeCustom->cake_topper, true);
+            $cakeTopperPriceData = json_decode($checkCakeCustom->cake_topper_price, true);
+            $cakeTopperImageData = json_decode($checkCakeCustom->image_topper, true);
+
+            array_unshift($cakeTopperData, ['cake_topper' => $this->newCakeTopper]);
+            array_unshift($cakeTopperPriceData, ['cake_topper_price' => $this->newCakeTopperPrice]);
+            array_unshift($cakeTopperImageData, ['image_topper' => $imagePath]);
+
+            $checkCakeCustom->cake_topper = json_encode($cakeTopperData);
+            $checkCakeCustom->cake_topper_price = json_encode($cakeTopperPriceData);
+            $checkCakeCustom->image_topper = json_encode($cakeTopperImageData);
+            $checkCakeCustom->save();
+        }
+
+        array_unshift($this->cakeToppers, ['cake_topper' => $this->newCakeTopper]);
+        array_unshift($this->cakeTopperPrices, ['cake_topper_price' => $this->newCakeTopperPrice]);
+        $this->newTopperImg = $this->storeImage($this->newTopperImg);
+        array_unshift($this->imageToppers, ['image_topper' => $this->newTopperImg]);
+
+        // Reset input fields
+        $this->newCakeTopper = '';
+        $this->newCakeTopperPrice = '';
+        $this->newTopperImg = null;
+    }
+
+    public function deleteCakeTopper($index)
+    {
+        if (isset($this->cakeToppers[$index]) && isset($this->cakeTopperPrices[$index]) && isset($this->imageToppers[$index])) {
+            unset($this->imageToppers[$index]);
+            unset($this->cakeToppers[$index]);
+            unset($this->cakeTopperPrices[$index]);
+
+            // Re-index the arrays
+            $this->imageToppers = array_values($this->imageToppers);
+            $this->cakeToppers = array_values($this->cakeToppers);
+            $this->cakeTopperPrices = array_values($this->cakeTopperPrices);
+
+            $this->updateDatabase();
+        }
+    }
+
+
+    private function storeImage($image)
+    {
+        // Generate a unique filename
+        $filename = uniqid() . '.' . $image->getClientOriginalExtension();
+
+        // Store the image in the public storage directory
+        $image->storeAs('public/cake-custom-image', $filename);
+
+        // Return the path to the stored image (public directory)
+        return 'cake-custom-image/' . $filename;
     }
 
     public function mount()
@@ -288,8 +378,12 @@ class CakeCustom extends Component
             $this->cakeSizePrices = json_decode($cakeCustom->cake_size_price, true);
             $this->cakeLayers = json_decode($cakeCustom->cake_layer, true);
             $this->cakeLayerPrices = json_decode($cakeCustom->cake_layer_price, true);
+            $this->imageDecorations = json_decode($cakeCustom->image_decoration, true);
             $this->cakeDecorations = json_decode($cakeCustom->cake_decoration, true);
             $this->cakeDecorationPrices = json_decode($cakeCustom->cake_decoration_price, true);
+            $this->imageToppers = json_decode($cakeCustom->image_topper, true);
+            $this->cakeToppers = json_decode($cakeCustom->cake_topper, true);
+            $this->cakeTopperPrices = json_decode($cakeCustom->cake_topper_price, true);
         }
     }
 
@@ -306,6 +400,8 @@ class CakeCustom extends Component
             'newCakeLayerPrice' => 'required|numeric|regex:/^\d{1,13}(\.\d{1,4})?$/',
             'newCakeDecoration' => 'required',
             'newCakeDecorationPrice' => 'required|numeric|regex:/^\d{1,13}(\.\d{1,4})?$/',
+            'newCakeTopper' => 'required',
+            'newCakeTopperPrice' => 'required|numeric|regex:/^\d{1,13}(\.\d{1,4})?$/',
         ]);
     }
 
@@ -323,8 +419,12 @@ class CakeCustom extends Component
             $cakeCustom->cake_size_price = json_encode(array_values($this->cakeSizePrices));
             $cakeCustom->cake_layer = json_encode(array_values($this->cakeLayers));
             $cakeCustom->cake_layer_price = json_encode(array_values($this->cakeLayerPrices));
+            $cakeCustom->image_decoration = json_encode(array_values($this->imageDecorations));
             $cakeCustom->cake_decoration = json_encode(array_values($this->cakeDecorations));
-            $cakeCustom->cake_decoration_price = json_encode(array_values($this->cakeDecorationsPrices));
+            $cakeCustom->cake_decoration_price = json_encode(array_values($this->cakeDecorationPrices));
+            $cakeCustom->image_topper = json_encode(array_values($this->imageToppers));
+            $cakeCustom->cake_topper = json_encode(array_values($this->cakeToppers));
+            $cakeCustom->cake_topper_price = json_encode(array_values($this->cakeTopperPrices));
             $cakeCustom->save();
         }
     }
@@ -356,8 +456,12 @@ class CakeCustom extends Component
             $serializedCakeSizePrice = json_encode($this->cakeSizePrices);
             $serializedCakeLayer = json_encode($this->cakeLayers);
             $serializedCakeLayerPrice = json_encode($this->cakeLayerPrices);
+            $serializedImageDecoration = json_encode($this->imageDecorations);
             $serializedCakeDecoration = json_encode($this->cakeDecorations);
             $serializedCakeDecorationPrice = json_encode($this->cakeDecorationPrices);
+            $serializedImageTopper = json_encode($this->imageToppers);
+            $serializedCakeTopper = json_encode($this->cakeToppers);
+            $serializedCakeTopperPrice = json_encode($this->cakeTopperPrices);
 
             ModelsCakeCustom::create([
                 'cake_type' => $serializedCakeType,
@@ -368,8 +472,12 @@ class CakeCustom extends Component
                 'cake_size_price' => $serializedCakeSizePrice,
                 'cake_layer' => $serializedCakeLayer,
                 'cake_layer_price' => $serializedCakeLayerPrice,
+                'image_decoration' => $serializedImageDecoration,
                 'cake_decoration' => $serializedCakeDecoration,
                 'cake_decoration_price' => $serializedCakeDecorationPrice,
+                'image_topper' => $serializedImageTopper,
+                'cake_topper' => $serializedCakeTopper,
+                'cake_topper_price' => $serializedCakeTopperPrice,
                 'user_id' => $user_id
             ]);
 

@@ -203,7 +203,8 @@
     @foreach ($products as $index => $product)
       <div class="p-1 w-96 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
         <div class="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
-          <img src="{{ $product->product_image ? asset('storage/' . $product->product_image) : asset('images/no-image.jpg') }}" class="h-full w-96 object-cover" />
+          <img src="{{ $product->product_image ? asset('storage/' . $product->product_image) : asset('images/no-image.jpg') }}" class="h-full w-96 object-cover"
+          alt="product_image" />
         </div>
         <div class="p-6 w-72">
           <div class="mb-2 flex flex-col items-start justify-start">

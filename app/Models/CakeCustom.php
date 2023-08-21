@@ -21,6 +21,9 @@ class CakeCustom extends Model
         'cake_decoration',
         'cake_decoration_price',
         'image_decoration',
+        'cake_topper',
+        'cake_topper_price',
+        'image_topper',
         'user_id'
     ];
 

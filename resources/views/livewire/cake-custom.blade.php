@@ -457,8 +457,9 @@
     <h1 class="text-gray-700 font-bold p-5">
         Design
     </h1>
+    
+    {{-- cakeDecoration --}}
     <hr>
-
     <h1 class="text-gray-700 p-5">
       Cake Decoration
     </h1>
@@ -523,26 +524,26 @@
           <section>
             <input type="file" 
               class="text-gray-700 my-2"
-              id="imageDecoId"
-              wire:model="newDecorationImg"
-              wire:change="$emit('fileChoosen')">
+              {{-- id="imageDecoId" --}}
+              wire:model="newDecorationImg">
               @error('newDecorationImg')
                 <div class="flex items-center">
                   <i class="material-icons text-red-500 animate-bounce mr-1">error</i>
                   <span class="text-sm text-red-500">{{ $message }}</span>
                 </div>
               @enderror
+              {{-- wire:change="$emit('fileChoosen')">
               @if ($newDecorationImg)
                 <img 
                   class="w-16 rounded-lg"
                   src="{{ $newDecorationImg }}" 
                   alt="image-preview">
-              @endif
+              @endif --}}
           </section>
         </div>
 
         <div class="gap-5 flex flex-col"> <!-- Flex column container for rows -->
-          @if (count($cakeDecorations) > 0 && count($cakeDecorationPrices) > 0)
+          @if (count($cakeDecorations) > 0 && count($cakeDecorationPrices) > 0 && count($imageDecorations) > 0)
               @php $elementsInRow = 0; @endphp <!-- Counter for elements in the current row -->
               <div class="flex flex-row gap-5"> <!-- First row -->
                   @foreach ($cakeDecorations as $index => $cake)
@@ -552,16 +553,18 @@
                           @php $elementsInRow = 0; @endphp <!-- Reset the counter -->
                       @endif
                       <div
-                        class="center relative flex justify-center items-center select-none whitespace-nowrap rounded-lg bg-gradient-to-tr from-blue-600 to-blue-400 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white"
+                        class="center relative flex justify-center items-center select-none whitespace-nowrap rounded-lg bg-gradient-to-tr from-blue-600 to-blue-400 align-baseline font-sans text-xs font-bold uppercase leading-none text-white"
                         data-dismissible="chip"
                         >
                         <div class="flex flex-col gap-1">
-                            <div class="mr-5 mt-px">{{ $cake['cake_decoration'] }}</div>
-                            <div class="flex flex-row">
-                                <div class=" mr-1">₱</div>
-                                <span>{{ $cakeDecorationPrices[$index]['cake_decoration_price'] }}</span>
-                            </div>
+                          <img class="w-fit h-24 rounded-t-lg" src="{{ asset('storage/'.$imageDecorations[$index]['image_decoration']) }}">
+                          <div class="mr-5 mx-2 mt-2">{{ $cake['cake_decoration'] }}</div>
+                          <div class="flex flex-row ml-2 mb-2">
+                              <div class="mr-1">₱</div>
+                              <span>{{ $cakeDecorationPrices[$index]['cake_decoration_price'] }}</span>
                         </div>
+                      </div>
+
                         <div
                           class="absolute top-1 right-1 mx-px mt-[0.5px] w-max rounded-md bg-blue-800 transition-colors hover:bg-blue-900"
                           data-dismissible-target="chip"
@@ -593,85 +596,20 @@
         </div> 
     </div>
 
-    <hr>
-    <div class="flex flex-row p-5 justify-between">
-        <h1 class="text-gray-600">Pattern</h1>
-        <div class="gap-5 flex flex-row">
-            <div class="add_image w-32 h-32 border-dashed border-gray-600 border-2 flex flex-col justify-center items-center">
-                <i class="material-icons text-gray-600">add_photo_alternate</i>
-                <p class="text-gray-600">Add Image</p>
-            </div>
-           
-            <div class="flex flex-col gap-5">
-                <div class="w-72">
-                    <div class="relative h-10 w-full min-w-[200px]">
-                      <input
-                        class="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                        placeholder=" "
-                      />
-                      <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                        Pattern
-                      </label>
-                    </div>
-                  </div>
-        
-                  <div class="flex flex-row gap-10">
-                    <div class="w-72">
-                        <div class="relative h-10 w-full min-w-[200px]">
-                          <input
-                            class="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                            placeholder=" "
-                          />
-                          <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                            Price
-                          </label>
-                        </div>
-                      </div>
-                        <button
-                        class="middle none center h-10 mr-4 rounded-lg bg-green-500 py-3 px-4 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                        data-ripple-light="true"
-                        >
-                        add
-                        </button> 
-                  </div>
-            </div>        
-        </div>
-        
-        <div class="gap-5 flex flex-row">
-            <div class="w-32 h-32 center relative inline-block select-none whitespace-nowrap rounded-lg bg-gray-500 py-2 px-3         align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
-            Image 1
-            </div>
-            
-            <div class="w-32 h-32 center relative inline-block select-none whitespace-nowrap rounded-lg bg-gray-500 py-2 px-3         align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
-            Image 2
-            </div>
-
-            <div class="w-32 h-32 center relative inline-block select-none whitespace-nowrap rounded-lg bg-gray-500 py-2 px-3         align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
-            Image 3
-            </div>
-
-            <div class="w-32 h-32 center relative inline-block select-none whitespace-nowrap rounded-lg bg-gray-500 py-2 px-3         align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
-            Image 4
-            </div>
-        </div>
-        
-    </div>
-
-    <hr>
-    <div class="flex flex-row p-5 justify-between">
-        <h1 class="text-gray-600">Topper</h1>
-        <div class="gap-5 flex flex-row">
-            <div class="add_image w-32 h-32 border-dashed border-gray-600 border-2 flex flex-col justify-center items-center">
-                <i class="material-icons text-gray-600">add_photo_alternate</i>
-                <p class="text-gray-600">Add Image</p>
-            </div>
-           
-            <div class="flex flex-col gap-5">
-                <div class="w-72">
-                    <div class="relative h-10 w-full min-w-[200px]">
-                      <select class="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 empty:!bg-red-500 focus:border-2 focus:border-blue-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                      required>
-                      <option value="">Cake Topper</option>
+     {{-- cakeTopper --}}
+     <hr>
+     <h1 class="text-gray-700 p-5">
+       Cake Topper
+     </h1>
+     <div class="flex flex-row p-5 justify-between">
+         <div class="flex flex-col gap-10">
+           <div class="gap-5 flex flex-row h-10">
+             <div class="w-72">
+                 <div class="relative h-10 w-full min-w-[200px]">
+                   <select class="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 empty:!bg-red-500 focus:border-2 focus:border-blue-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                   required
+                   wire:model="newCakeTopper">
+                   <option value="">Cake Topper</option>
                       <option value="Edible modelled cake toppers">Edible modelled cake toppers</option>
                       <option value="Edible printed toppers">Edible printed toppers</option>
                       <option value="Edible floral cake toppers">Edible floral cake toppers</option>
@@ -680,54 +618,122 @@
                       <option value="Photographs">Photographs</option>
                       <option value="Plastic modelled cake toppers">Plastic modelled cake toppers</option>
                       <option value="Non-edible floral toppers">Non-edible floral toppers</option>
-                      </select>
-                      <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                        Topper
-                      </label>
-                    </div>
-                  </div>
-        
-                  <div class="flex flex-row gap-10">
-                    <div class="w-72">
-                        <div class="relative h-10 w-full min-w-[200px]">
-                          <input
-                            class="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                            placeholder=" "
-                          />
-                          <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                            Price
-                          </label>
-                        </div>
-                      </div>
-                        <button
-                        class="middle none center h-10 mr-4 rounded-lg bg-green-500 py-3 px-4 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                        data-ripple-light="true"
-                        >
-                        add
-                        </button> 
-                  </div>
-            </div>        
-        </div>
-        
-        <div class="gap-5 flex flex-row">
-            <div class="w-32 h-32 center relative inline-block select-none whitespace-nowrap rounded-lg bg-gray-500 py-2 px-3         align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
-            Image 1
-            </div>
-            
-            <div class="w-32 h-32 center relative inline-block select-none whitespace-nowrap rounded-lg bg-gray-500 py-2 px-3         align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
-            Image 2
-            </div>
-
-            <div class="w-32 h-32 center relative inline-block select-none whitespace-nowrap rounded-lg bg-gray-500 py-2 px-3         align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
-            Image 3
-            </div>
-
-            <div class="w-32 h-32 center relative inline-block select-none whitespace-nowrap rounded-lg bg-gray-500 py-2 px-3         align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
-            Image 4
-            </div>
-        </div>
-        
-    </div>
+                   </select>
+                   @error('newCakeTopper')
+                     <div class="flex justify-center items-center pt-2">
+                       <i class="material-icons text-red-500 animate-bounce mr-1">error</i>
+                       <span class="text-sm text-red-500">{{ $message }}</span>
+                     </div>
+                   @enderror
+                   <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                     Type
+                   </label>
+                 </div>
+             </div>
+     
+             <div class="w-72">
+               <div class="relative h-10 w-full min-w-[200px]">
+                 <input
+                   class="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                   placeholder=" "
+                   required
+                   wire:model="newCakeTopperPrice"
+                 />
+                 @error('newCakeTopperPrice')
+                     <div class="flex justify-center items-center pt-2">
+                       <i class="material-icons text-red-500 animate-bounce mr-1">error</i>
+                       <span class="text-sm text-red-500">{{ $message }}</span>
+                     </div>
+                 @enderror
+                 <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                   Price
+                 </label>
+               </div>
+             </div>
+             
+             <button
+               class="middle none center mr-4 rounded-lg bg-green-500 py-3 px-4 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+               data-ripple-light="true"
+               type="submit"
+               wire:click.lazy="addCakeTopper"
+               >
+               add
+             </button> 
+           </div>
+           <section>
+             <input type="file" 
+               class="text-gray-700 my-2"
+               {{-- id="imageDecoId" --}}
+               wire:model="newTopperImg">
+               @error('newTopperImg')
+                 <div class="flex items-center">
+                   <i class="material-icons text-red-500 animate-bounce mr-1">error</i>
+                   <span class="text-sm text-red-500">{{ $message }}</span>
+                 </div>
+               @enderror
+               {{-- wire:change="$emit('fileChoosen')">
+               @if ($newDecorationImg)
+                 <img 
+                   class="w-16 rounded-lg"
+                   src="{{ $newDecorationImg }}" 
+                   alt="image-preview">
+               @endif --}}
+           </section>
+         </div>
+ 
+         <div class="gap-5 flex flex-col"> <!-- Flex column container for rows -->
+           @if (count($cakeToppers) > 0 && count($cakeTopperPrices) > 0 && count($imageToppers) > 0)
+               @php $elementsInRow = 0; @endphp <!-- Counter for elements in the current row -->
+               <div class="flex flex-row gap-5"> <!-- First row -->
+                   @foreach ($cakeToppers as $index => $cake)
+                       @if ($elementsInRow >= 5)
+                           </div> <!-- Close the current row if there are 5 elements -->
+                           <div class="flex flex-row gap-5"> <!-- Start a new row -->
+                           @php $elementsInRow = 0; @endphp <!-- Reset the counter -->
+                       @endif
+                       <div
+                         class="center relative flex justify-center items-center select-none whitespace-nowrap rounded-lg bg-gradient-to-tr from-blue-600 to-blue-400 align-baseline font-sans text-xs font-bold uppercase leading-none text-white"
+                         data-dismissible="chip"
+                         >
+                         <div class="flex flex-col gap-1">
+                           <img class="w-fit h-24 rounded-t-lg" src="{{ asset('storage/'.$imageToppers[$index]['image_topper']) }}">
+                           <div class="mr-5 mx-2 mt-2">{{ $cake['cake_topper'] }}</div>
+                           <div class="flex flex-row ml-2 mb-2">
+                               <div class="mr-1">₱</div>
+                               <span>{{ $cakeTopperPrices[$index]['cake_topper_price'] }}</span>
+                         </div>
+                       </div>
+ 
+                         <div
+                           class="absolute top-1 right-1 mx-px mt-[0.5px] w-max rounded-md bg-blue-800 transition-colors hover:bg-blue-900"
+                           data-dismissible-target="chip"
+                         >
+                           <button 
+                             role="button" 
+                             class="h-5 w-5 p-1"
+                             wire:click="deleteCakeTopper({{ $index }})">
+                             <svg
+                               xmlns="http://www.w3.org/2000/svg"
+                               fill="none"
+                               viewBox="0 0 24 24"
+                               stroke="currentColor"
+                               stroke-width="3"
+                             >
+                               <path
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 d="M6 18L18 6M6 6l12 12"
+                               ></path>
+                             </svg>
+                           </button>
+                         </div>
+                       </div>
+                       @php $elementsInRow++; @endphp <!-- Increment the counter -->
+                   @endforeach
+               </div> <!-- Close the last row -->
+           @endif
+         </div> 
+     </div>
 
     <div class="flex flex-row justify-end">
         <a
@@ -748,7 +754,7 @@
     </div>
 </div>
 
-<script>
+{{-- <script>
   window.livewire.on('fileChoosen', () => {
       let inputField = document.getElementById('imageDecoId');
       let file = inputField.files[0];
@@ -761,5 +767,5 @@
           reader.readAsDataURL(file);
       }
   });
-</script>
+</script> --}}
 

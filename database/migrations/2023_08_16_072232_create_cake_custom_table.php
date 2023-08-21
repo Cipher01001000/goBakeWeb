@@ -25,6 +25,9 @@ return new class extends Migration
             $table->json('image_decoration')->nullable();
             $table->json('cake_decoration')->nullable();
             $table->json('cake_decoration_price')->nullable();
+            $table->json('image_topper')->nullable();
+            $table->json('cake_topper')->nullable();
+            $table->json('cake_topper_price')->nullable();
             $table->timestamps();
         });
     }
