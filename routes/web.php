@@ -32,9 +32,6 @@ Route::get('/', [ProductController::class, 'index']);
 //single product
 Route::get('/products/{product}', [ProductController::class, 'show']);
 
-//show register create form
-Route::get('/register', [UserController::class, 'create']);
-
 //ceate new user
 Route::post('/users', [UserController::class, 'store']);
 

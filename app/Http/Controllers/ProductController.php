@@ -17,16 +17,6 @@ class ProductController extends Controller
         ]);
     }
 
-    //show data in seller inventory
-    public function seller_product()
-    {
-        return view('seller/index', [
-            'products' => Product::latest()->filter(
-                request(['search'])
-            )->paginate(8)
-        ]);
-    }
-
     //show single product 
     public function show(Product $product)
     {
